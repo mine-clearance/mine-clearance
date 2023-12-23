@@ -1,4 +1,4 @@
-See the Gantt chart below for the project timeline. The chart is also available in [PDF](./gantt.pdf) format.
+See the Gantt chart below for the project timeline. The chart is also available in format.
 
 ```mermaid
 gantt
@@ -25,12 +25,12 @@ gantt
     Case Studies Research                  :done, ea8, after ea2, 14d
     Drafting First Version                 :done, ea9, after ea8, 2d
     Validation and Review                  :done, ea10, after ea9, 8d
-    Final Version Drafting                 :done, ea11, after ea10, 3w
+    Final Version Drafting                 :done, ea11, after ea10, 4w
 
     section Data and Data Processing
-    Bot Creation                           :db1, after ea11, 5d
+    Bot Creation                           :db1, after ea11, 1w
     Data Cleaning                          :db2, after db1, 3w
-    Cleaning of Our Own Field Photos       :db3, after t2, 5d
+    Cleaning of Our Own Field Photos       :db3, after t2, 1w
 
     section Image Processing
     YOLO AI Development for Mine Discrimination :ti1, after cs3, 2w
@@ -39,15 +39,16 @@ gantt
 
     section Software
     Coding Launch Area                     :s1, after ea11, 2w
-    Path Finding Algorithm                 :s2, after s1, 1w
+    Path Finding Algorithm                 :s2, after s1, 2w
     Drone Control                          :s3, after s2, 1w
     Mine Marking Algorithm                 :s4, after s3, 1w
     Implementation of Processing Algorithm :s5, after s4, 1w
 
     section Sensor
     Hardware Setup                         :cs1, after ea11, 1w
-    Infrared Work                          :cs2, after cs1, 1w
-    Sensor Transmission to the Platform    :cs3, after cs2, 1w
+    Infrared Work                          :cs2, after cs1, 3w
+    Lidar Work                          :cs2, after cs1, 3w
+    Sensor Transmission to the Platform    :cs3, after cs2, 2w
 
     section Mine
     Retrieving Mine Models                 :m1, after ea11, 3d
@@ -55,16 +56,16 @@ gantt
 
     section Drone
     Research on Drone Design               :dr1, after ea11, 2w
-    Component Selection                    :dr2, after dr1, 5d
+    Component Selection                    :dr2, after dr1, 1w
     Prototype Assembly                     :dr3, after dr2, 10d
     Initial Drone Tests                    :dr4, after dr3, 5d
     Field Testing of Drone                 :dr5, after dr4, 5d
     Drone Optimization                     :dr6, after dr5, 10d
 
-    section Tests (Completed)
-    Taking Photos of Impressions           :t2, after m2, 2d
-    Test 2                                 :t3, after dr6, 2d
-    Test 3                                 :t4, after dr6, 2d
+    section Tests
+    Finds a field                          :t1, after ea11, 1w
+    Think about the different types of fields/problems    :t2, after t1, 1w
+    Taking Photos of Impressions           :t3, after m2, 2d
 
     section Communication
     Communication Strategy                 :com2, after ea11, 5d
