@@ -73,3 +73,10 @@ There is a lot of overlap between the two, so we can use the same keywords for b
 "cooled detector thermal imaging mines"
 "refrigerated infrared camera mines"
 "precision thermal imaging minefield"
+
+### For thermal imaging cameras with cooled sensors on mines :
+
+"cooled thermal camera minefield"
+"cryogenically cooled infrared mines"
+"high-resolution thermal imaging mines"
+"cooled infrared mine detection"
