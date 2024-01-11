@@ -50,6 +50,10 @@
   });
 </script>
 
+<svelte:head>
+  <title>Mine Clearance</title>
+</svelte:head>
+
 <main class="container">
   {#if $problemExists}
     <Popup show={true} title={$problemTitle} message={$problemMessage}/>

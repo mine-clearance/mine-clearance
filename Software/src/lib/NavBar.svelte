@@ -27,7 +27,7 @@
     <div>Vent: 13km/h</div>
     <div>Temps de vol: 00:14</div>
   </div>
-  <div class="overflow-auto h-48 my-2">
+  <div class="overflow-auto h-48 my-4">
     {#each [1, 2, 3, 4, 5, 6, 7, 8, 9] as item}
       <div class="flex justify-between">
         <div>Mine {item}</div>
@@ -35,7 +35,8 @@
       </div>
     {/each}
   </div>
-  <div class="flex justify-evenly border-white mt-2 pt-2">
+
+  <div class="flex justify-evenly border-white my-4 pt-2">
     {#if isOnline}
       <button class="py-2 px-4 rounded bg-cyan-900" on:click={downloadMaps}
         >Download maps</button
@@ -43,7 +44,7 @@
     {/if}
   </div>
 
-  <div>
+  <div class="mt-6">
     <button class="bg-red-700 py-2 px-4 rounded">
         <ArrowUpIcon size="22" />
     </button>
