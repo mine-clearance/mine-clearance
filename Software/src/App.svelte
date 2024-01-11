@@ -3,6 +3,7 @@
   import { writable } from 'svelte/store';
   import Popup from './lib/Popup.svelte';
   import NavBar from "./lib/NavBar.svelte";
+  // import osmData from "../data/map.osm"
   import "./app.css";
   import L from 'leaflet';
 
@@ -28,7 +29,7 @@
     try {
       checkConnection();
 
-      var map = L.map('map').setView([51.505, -0.09], 13);
+      var map = L.map('map').setView([2.3473316760187686, 48.85460958306098], 25);
 
       L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
@@ -58,3 +59,10 @@
 
   <NavBar isOnline={true} />
 </main>
+
+<style>
+#map {
+    height: 100vh; /* ou une valeur spécifique en pixels */
+    width: 100%;
+}
+</style>

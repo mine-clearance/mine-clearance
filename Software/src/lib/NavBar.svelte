@@ -37,7 +37,7 @@
   </div>
   <div class="flex justify-evenly border-white mt-2 pt-2">
     {#if isOnline}
-      <button class="py-2 px-4 rounded bg-" on:click={downloadMaps}
+      <button class="py-2 px-4 rounded bg-cyan-900" on:click={downloadMaps}
         >Download maps</button
       >
     {/if}
