@@ -12,12 +12,14 @@
   },
   "dependencies": {
     "@tauri-apps/api": "^1.5.2",
-    "feather-icons": "^4.29.1"
+    "feather-icons": "^4.29.1",
+    "leaflet": "^1.9.4"
   },
   "devDependencies": {
     "@sveltejs/vite-plugin-svelte": "^3.0.1",
     "@tauri-apps/cli": "^1.5.9",
     "@tsconfig/svelte": "^5.0.2",
+    "@types/leaflet": "^1.9.8",
     "autoprefixer": "^10.4.16",
     "postcss": "^8.4.33",
     "svelte": "^4.2.8",

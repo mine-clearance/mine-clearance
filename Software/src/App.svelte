@@ -1,23 +1,60 @@
 <script lang="ts">
+  import { onMount } from "svelte";
+  import { writable } from 'svelte/store';
   import Popup from './lib/Popup.svelte';
+  import NavBar from "./lib/NavBar.svelte";
   import "./app.css";
+  import L from 'leaflet';
+
+  const problemExists = writable(false);
+  const problemTitle = writable("");
+  const problemMessage = writable("");
+
+  const isOnline = writable(navigator.onLine);
+
+  function checkConnection() {
+    isOnline.set(navigator.onLine);
+    if (!navigator.onLine) {
+      problemTitle.set("Pas de connexion Internet");
+      problemMessage.set("Veuillez vérifier votre connexion.");
+      problemExists.set(true);
+    }
+  }
+
+  window.addEventListener('online', checkConnection);
+  window.addEventListener('offline', checkConnection);
+
+  onMount(async () => {
+    try {
+      checkConnection();
+
+      var map = L.map('map').setView([51.505, -0.09], 13);
+
+      L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+      }).addTo(map);
+
+      L.marker([51.5, -0.09]).addTo(map)
+        .bindPopup('A pretty CSS popup.<br> Easily customizable.')
+        .openPopup();
+
+    } catch (error) {
+      if (error instanceof Error) {
+        console.error("Une erreur s'est produite:", error);
+        problemMessage.set(error.message);
+        problemTitle.set("Erreur");
+        problemExists.set(true);
+      }
+    }
+  });
 </script>
 
 <main class="container">
-  <h1>Welcome to Tauri!</h1>
+  {#if $problemExists}
+    <Popup show={true} title={$problemTitle} message={$problemMessage}/>
+  {/if}
 
-  <div class="row">
-    <a href="https://svelte.dev" target="_blank">
-      <img src="/svelte.svg" class="logo svelte" alt="Svelte Logo" />
-    </a>
-  </div>
+  <div id="map"></div>
 
-  <Popup show={true} title={"Danger"} message={"Altitude basse veuillez reprendre le contrôle"}/>
-
+  <NavBar isOnline={true} />
 </main>
-
-<style>
-  .logo.svelte:hover {
-    filter: drop-shadow(0 0 2em #ff3e00);
-  }
-</style>
