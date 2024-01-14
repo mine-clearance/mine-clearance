@@ -1,32 +1,33 @@
 {
   "name": "software",
-  "productName": "software",
-  "version": "1.0.0",
-  "description": "My Electron application description",
-  "main": "src/index.js",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
   "scripts": {
-    "start": "electron-forge start",
-    "package": "electron-forge package",
-    "make": "electron-forge make",
-    "publish": "electron-forge publish",
-    "lint": "echo \"No linting configured\""
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "check": "svelte-check --tsconfig ./tsconfig.json",
+    "tauri": "tauri"
   },
-  "keywords": [],
-  "author": {
-    "name": "Guillaume Dorschner",
-    "email": "Guillaume.dorschner@gmail.com"
-  },
-  "license": "MIT",
   "dependencies": {
-    "electron-squirrel-startup": "^1.0.0"
+    "@tauri-apps/api": "^1.5.2",
+    "feather-icons": "^4.29.1",
+    "leaflet": "^1.9.4"
   },
   "devDependencies": {
-    "@electron-forge/cli": "^7.1.0",
-    "@electron-forge/maker-deb": "^7.1.0",
-    "@electron-forge/maker-rpm": "^7.1.0",
-    "@electron-forge/maker-squirrel": "^7.1.0",
-    "@electron-forge/maker-zip": "^7.1.0",
-    "@electron-forge/plugin-auto-unpack-natives": "^7.1.0",
-    "electron": "27.1.2"
+    "@sveltejs/vite-plugin-svelte": "^3.0.1",
+    "@tauri-apps/cli": "^1.5.9",
+    "@tsconfig/svelte": "^5.0.2",
+    "@types/leaflet": "^1.9.8",
+    "autoprefixer": "^10.4.16",
+    "postcss": "^8.4.33",
+    "svelte": "^4.2.8",
+    "svelte-check": "^3.4.6",
+    "svelte-feather-icons": "^4.1.0",
+    "tailwindcss": "^3.4.1",
+    "tslib": "^2.6.0",
+    "typescript": "^5.0.2",
+    "vite": "^5.0.0"
   }
 }
