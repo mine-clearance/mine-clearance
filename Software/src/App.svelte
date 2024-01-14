@@ -29,16 +29,11 @@
     try {
       checkConnection();
 
-      var map = L.map('map').setView([2.3473316760187686, 48.85460958306098], 25);
-
-      L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-      }).addTo(map);
-
-      L.marker([51.5, -0.09]).addTo(map)
-        .bindPopup('A pretty CSS popup.<br> Easily customizable.')
-        .openPopup();
-
+      // paris location
+      var map = L.map('map').setView([48.866667, 2.333333], 13);
+      
+      L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
+            
     } catch (error) {
       if (error instanceof Error) {
         console.error("Une erreur s'est produite:", error);
@@ -65,8 +60,24 @@
 </main>
 
 <style>
-#map {
-    height: 100vh; /* ou une valeur spécifique en pixels */
+:global(body, html) {
+    margin: 0;
+    padding: 0;
+    height: 100%;
     width: 100%;
+    background: black;
 }
+
+#map {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 0;
+}
+
+:global(.leaflet-control-attribution) {
+    display: none;
+} 
 </style>

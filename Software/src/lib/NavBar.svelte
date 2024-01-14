@@ -8,7 +8,7 @@
   }
 </script>
 
-<nav class="fixed top-0 right-0 bg-blue bg-opacity-50 m-4 p-6 rounded">
+<nav class="fixed top-0 right-0 bg-blue m-4 p-6 rounded">
   <h1 class="font-bold">Infos</h1>
 
   <div>
