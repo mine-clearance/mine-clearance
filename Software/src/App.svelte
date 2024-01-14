@@ -3,8 +3,8 @@
   import { writable } from 'svelte/store';
   import Popup from './lib/Popup.svelte';
   import NavBar from "./lib/NavBar.svelte";
-  // import osmData from "../data/map.osm"
   import "./app.css";
+  import 'leaflet/dist/leaflet.css';
   import L from 'leaflet';
 
   const problemExists = writable(false);
