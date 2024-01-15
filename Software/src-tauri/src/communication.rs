@@ -33,20 +33,3 @@ impl Communication {
         Ok(message.trim_end().to_string()) // Remove trailing newline
     }
 }
-
-fn main() -> io::Result<()> {
-    // Replace with the actual address of the drone's TCP server
-    let drone_address = "127.0.0.1:12345";
-
-    // Initialize communication with the drone
-    let mut drone_comm = Communication::new(drone_address)?;
-
-    // Example: Sending a command to the drone
-    drone_comm.send_command("Takeoff")?;
-
-    // Example: Receiving data from the drone
-    let data = drone_comm.receive_data()?;
-    println!("Received data from drone: {}", data);
-
-    Ok(())
-}
