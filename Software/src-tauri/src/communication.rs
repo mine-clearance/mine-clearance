@@ -18,7 +18,7 @@ pub struct Communication {
 impl Communication {
     pub fn new<A: ToSocketAddrs>(addr: A) -> std::io::Result<Self> {
         let stream = TcpStream::connect(addr)?;
-        Ok(Self { stream })
+        Ok(Self { stream }) // testing if the variable exists with the right type
     }
 
     pub fn send_command(&mut self, command: &str) -> std::io::Result<()> {
@@ -30,6 +30,6 @@ impl Communication {
         let mut reader = BufReader::new(&mut self.stream);
         let mut message = String::new();
         reader.read_line(&mut message)?;
-        Ok(message.trim_end().to_string()) // Remove trailing newline
+        Ok(message.trim_end().to_string()) // Remove trailing newline and test if the variable exists with the right type
     }
 }
