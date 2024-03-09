@@ -13,7 +13,9 @@
   "dependencies": {
     "@tauri-apps/api": "^1.5.2",
     "feather-icons": "^4.29.1",
-    "leaflet": "^1.9.4"
+    "leaflet": "^1.9.4",
+    "leaflet-draw": "^1.0.4",
+    "leaflet-extra-markers": "^1.2.2"
   },
   "devDependencies": {
     "@sveltejs/vite-plugin-svelte": "^3.0.1",
