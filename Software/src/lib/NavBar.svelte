@@ -1,7 +1,16 @@
 <script>
-  import { ArrowUpIcon, ArrowDownIcon, MoveIcon, PenToolIcon } from 'svelte-feather-icons'
+  import {
+    ArrowUpIcon,
+    ArrowDownIcon,
+    DeleteIcon,
+    PenToolIcon,
+  } from "svelte-feather-icons";
+  import Mine from "./Mine.svelte";
+  import { mines } from "../store/store.js";
 
   export let isOnline = false;
+  export let startDrawing;
+  export let deleteDrawings;
 
   function downloadMaps() {
     // download les maps
@@ -9,9 +18,9 @@
 </script>
 
 <nav class="fixed top-0 right-0 bg-blue m-4 p-6 rounded">
-  <h1 class="font-bold">Infos</h1>
+  <h1 class="font-bold text-indigo-500">Infos</h1>
 
-  <div>
+  <div class="text-left">
     <p>connection</p>
     {#if isOnline}
       <p>online</p>
@@ -20,19 +29,17 @@
     {/if}
   </div>
 
-  <div>
+  <div class="text-left">
     <div>Battery 90%</div>
     <div>Hauteur: 80m</div>
     <div>Vitesse: 22km</div>
     <div>Vent: 13km/h</div>
     <div>Temps de vol: 00:14</div>
   </div>
-  <div class="overflow-auto h-48 my-4">
-    {#each [1, 2, 3, 4, 5, 6, 7, 8, 9] as item}
-      <div class="flex justify-between">
-        <div>Mine {item}</div>
-        <div>00:00:00</div>
-      </div>
+
+  <div class="overflow-auto h-80 my-4">
+    {#each $mines as mine}
+      <Mine {...mine} />
     {/each}
   </div>
 
@@ -46,16 +53,16 @@
 
   <div class="mt-6">
     <button class="bg-red-700 py-2 px-4 rounded">
-        <ArrowUpIcon size="22" />
+      <ArrowUpIcon size="22" />
     </button>
     <button class="bg-red-700 py-2 px-4 rounded">
-        <ArrowDownIcon size="22" />
+      <ArrowDownIcon size="22" />
     </button>
-    <button class="bg-red-700 py-2 px-4 rounded">
-        <MoveIcon size="22" />
+    <button class="bg-red-700 py-2 px-4 rounded" on:click={startDrawing}>
+      <PenToolIcon size="22" />
     </button>
-    <button class="bg-red-700 py-2 px-4 rounded">
-        <PenToolIcon size="22" />
+    <button class="bg-red-700 py-2 px-4 rounded" on:click={deleteDrawings}>
+      <DeleteIcon size="22" />
     </button>
   </div>
 </nav>
