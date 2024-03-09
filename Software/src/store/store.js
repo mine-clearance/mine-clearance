@@ -10,7 +10,7 @@ export const drone = writable({
     speed: 10,
     altitude: 20,
     distance: 100,
-    location: { lat: 48.376288, lng: 2.333822 },
+    location: { lat: 48.864716, lng: 2.349014 },
   }
 })
 

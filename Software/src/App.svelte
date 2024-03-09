@@ -127,7 +127,7 @@
       $drone.infos.location.lat,
       $drone.infos.location.lng
     );
-    droneMarker.setLatLng(newLatLng);
+    droneMarker.setLatLng(newLatLng).update();
     // // To follow the drone
     // map.setView(newLatLng);
   }
