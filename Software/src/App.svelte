@@ -29,11 +29,11 @@
     }
   }
 
-
   window.addEventListener("online", checkConnection);
   window.addEventListener("offline", checkConnection);
 
   let map;
+  let droneMarker = null;
   let drawnItems = new L.FeatureGroup();
   let drawControl;
   let coor;
@@ -54,6 +54,11 @@
 
   onMount(() => {
     try {
+      setInterval(() => {
+        $drone.infos.location.lat += Math.random() * 0.001;
+        $drone.infos.location.lng += Math.random() * 0.001;
+      }, 1000);
+
       checkConnection();
 
       // Initialize map
@@ -79,16 +84,16 @@
         searchZone.set(layer.getLatLngs());
       });
 
-      $: {
-        if ($drone){
-          L.marker([$drone.infos.location.lat, $drone.infos.location.lng], {
-            icon: L.ExtraMarkers.icon({
-              icon: "fa-drone",
-              markerColor: "blue",
-            }),
-          }).addTo(map);
+      // Initialize drone marker
+      droneMarker = L.marker(
+        [$drone.infos.location.lat, $drone.infos.location.lng],
+        {
+          icon: L.ExtraMarkers.icon({
+            icon: "fa-drone",
+            markerColor: "blue",
+          }),
         }
-      }
+      ).addTo(map);
 
       $mines.forEach((mine, index) => {
         let marker = L.marker([mine.location.lat, mine.location.lng], {
@@ -115,6 +120,17 @@
       problemExists.set(true);
     }
   });
+
+  // update the drone position
+  $: if ($drone && droneMarker) {
+    const newLatLng = new L.LatLng(
+      $drone.infos.location.lat,
+      $drone.infos.location.lng
+    );
+    droneMarker.setLatLng(newLatLng);
+    // // To follow the drone
+    // map.setView(newLatLng);
+  }
 </script>
 
 <svelte:head>
@@ -151,5 +167,13 @@
 
   :global(.leaflet-control-attribution) {
     display: none;
+  }
+
+  :global(.leaflet-marker-pane > *) {
+  -webkit-transition: transform .3s linear;
+  -moz-transition: transform .3s linear;
+  -o-transition: transform .3s linear;
+  -ms-transition: transform .3s linear;
+  transition: transform .3s linear;
   }
 </style>
