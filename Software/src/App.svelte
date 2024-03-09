@@ -11,7 +11,7 @@
   import "leaflet-draw";
   import "leaflet-extra-markers";
 
-  import { mines, searchZone, selectedMine } from "./store/store.js";
+  import { drone, mines, searchZone, selectedMine } from "./store/store.js";
 
   // Popup error state
   const problemExists = writable(false);
@@ -28,6 +28,7 @@
       problemExists.set(true);
     }
   }
+
 
   window.addEventListener("online", checkConnection);
   window.addEventListener("offline", checkConnection);
@@ -77,6 +78,17 @@
         drawnItems.addLayer(layer);
         searchZone.set(layer.getLatLngs());
       });
+
+      $: {
+        if ($drone){
+          L.marker([$drone.infos.location.lat, $drone.infos.location.lng], {
+            icon: L.ExtraMarkers.icon({
+              icon: "fa-drone",
+              markerColor: "blue",
+            }),
+          }).addTo(map);
+        }
+      }
 
       $mines.forEach((mine, index) => {
         let marker = L.marker([mine.location.lat, mine.location.lng], {
