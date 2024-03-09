@@ -55,7 +55,10 @@
   <div class={`flex items-center ${expanded ? "" : "hidden"}`}>
     <div class="text-sm text-white-400">
       <div>Type: {type}</div>
-      <div>Location: {location}</div>
+      <div>
+        Location:
+        {location.lat}; {location.lng}
+      </div>
       <div>Distance: {distance}</div>
     </div>
   </div>
