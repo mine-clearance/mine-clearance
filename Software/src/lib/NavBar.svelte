@@ -20,21 +20,21 @@
 <nav class="fixed top-0 right-0 bg-blue m-4 p-6 rounded">
   <h1 class="font-bold text-indigo-500">Infos</h1>
 
-  <div class="text-left">
-    <p>connection</p>
+  <div class="text-left flex">
+    <p>connection:</p>
     {#if isOnline}
-      <p>online</p>
+      <p class="mx-4">online</p>
     {:else}
-      <p>offline</p>
+      <p class="mx-4">offline</p>
     {/if}
   </div>
-
+  
   <div class="text-left">
     <div>Battery 90%</div>
-    <div>Hauteur: 80m</div>
-    <div>Vitesse: 22km</div>
-    <div>Vent: 13km/h</div>
-    <div>Temps de vol: 00:14</div>
+    <div>Height: 80m</div>
+    <div>Speed: 22km/h</div>
+    <div>Wind: 13km/h</div>
+    <div>Flight time: 00:14</div>
   </div>
 
   <div class="overflow-auto h-80 my-4">

@@ -32,7 +32,7 @@
   on:click={toggleExpand}
 >
   <div class="flex justify-between items-center mb-2">
-    <h5 class="text-xl font-bold leading-none text-white">Mine {id}</h5>
+    <h5 class="text-xl  font-bold leading-none text-white">Mine {id}</h5>
     {#if status === "arm"}
       <span class="text-white-500 bg-red-400 py-1 px-2 rounded-lg">Arm</span>
     {:else if status === "disarm"}

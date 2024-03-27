@@ -23,8 +23,8 @@
   function checkConnection() {
     isOnline.set(navigator.onLine);
     if (!navigator.onLine) {
-      problemTitle.set("Pas de connexion Internet");
-      problemMessage.set("Veuillez vérifier votre connexion.");
+      problemTitle.set("No Internet connection");
+      problemMessage.set("Please check your connection.");
       problemExists.set(true);
     }
   }
@@ -57,7 +57,7 @@
       setInterval(() => {
         $drone.infos.location.lat += Math.random() * 0.001;
         $drone.infos.location.lng += Math.random() * 0.001;
-      }, 1000);
+      }, 500);
 
       checkConnection();
 
@@ -114,7 +114,7 @@
         });
       });
     } catch (error) {
-      console.error("Une erreur s'est produite:", error);
+      console.error("An error has occurred:", error);
       problemMessage.set(error.message);
       problemTitle.set("Erreur");
       problemExists.set(true);

@@ -5,8 +5,8 @@
   import "../app.css";
 
   export let show = false;
-  export let title = "Titre";
-  export let message = "Message";
+  export let title = "title";
+  export let message = "message";
 
   onMount(() => {
       setTimeout(() => {

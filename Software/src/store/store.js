@@ -24,9 +24,9 @@ export const mines = writable([
   },
   {
     id: "2",
-    status: "arm",
+    status: "disarm",
     type: "Anti-tank",
-    location: { lat: 46.887577, lng: 2.36824 },
+    location: { lat: 48.861288, lng: 2.350872 },
     distance: "200m",
   },
   {
@@ -45,9 +45,9 @@ export const mines = writable([
   },
   {
     id: "5",
-    status: "arm",
+    status: "disarm",
     type: "Anti-tank",
-    location: { lat: 47.877417, lng: 2.368841 },
+    location: { lat: 48.853524, lng: 2.369111 },
     distance: "200m",
   },
   {
@@ -55,6 +55,13 @@ export const mines = writable([
     status: "ongoing",
     type: "Anti-personnel",
     location: { lat: 48.877417, lng: 2.368841 },
+    distance: "300m",
+  },
+  {
+    id: "12",
+    status: "disarm",
+    type: "Anti-personnel",
+    location: { lat: 48.895748, lng: 2.236584 },
     distance: "300m",
   },
 ]);
